@@ -1,7 +1,9 @@
 package me.melontini.savemybed.mixin;
 
 import net.minecraft.block.BedBlock;
+import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
@@ -17,7 +19,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import static net.minecraft.block.BedBlock.isBedWorking;
 
 @Mixin(BedBlock.class)
-public class BedBlockMixin {
+public abstract class BedBlockMixin extends HorizontalFacingBlock implements BlockEntityProvider {
+    protected BedBlockMixin(Settings settings) {
+        super(settings);
+    }
+
     @Inject(at = @At("HEAD"), method = "onUse", cancellable = true)
     public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
         if (!isBedWorking(world)) {
