@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "save-my-bed",
+  "version": "${version}",
+  "name": "Save My Bed",
+  "description": "",
+  "authors": [
+    "melontini"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/save-my-bed/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.melontini.savemybed.SaveMyBed"
+    ]
+  },
+  "mixins": [
+    "save-my-bed.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": "*"
+  }
+}

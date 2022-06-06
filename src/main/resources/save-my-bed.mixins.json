@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.melontini.savemybed.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "BedBlockMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
