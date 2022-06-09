@@ -27,7 +27,7 @@ public abstract class BedBlockMixin extends HorizontalFacingBlock implements Blo
     @Inject(at = @At("HEAD"), method = "onUse", cancellable = true)
     public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
         if (!isBedWorking(world)) {
-            player.sendMessage(Text.translatable("ext.savemybed.action"), true);
+            player.sendMessage(Text.translatable("text.savemybed.action"), true);
             cir.setReturnValue(ActionResult.SUCCESS);
             cir.cancel();
         }
