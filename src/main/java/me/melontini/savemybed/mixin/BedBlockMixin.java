@@ -5,7 +5,7 @@ import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -27,7 +27,7 @@ public abstract class BedBlockMixin extends HorizontalFacingBlock implements Blo
     @Inject(at = @At("HEAD"), method = "onUse", cancellable = true)
     public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
         if (!isBedWorking(world)) {
-            player.sendMessage(new TranslatableText("text.savemybed.action"), true);
+            player.sendMessage(Text.translatable("ext.savemybed.action"), true);
             cir.setReturnValue(ActionResult.SUCCESS);
             cir.cancel();
         }
